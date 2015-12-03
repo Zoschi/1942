@@ -1,0 +1,20 @@
+{
+  "name": "1942",
+  "version": "0.1.0",
+  "description": "",
+
+  "authors": [
+    "zoschi <zoschi@jemazo.de>"
+  ],
+
+  "license": "MIT",
+
+  "dependencies": {
+    "requirejs": "latest",
+    "phaser-build": "latest"
+  },
+
+  "ignore": [
+    "public/js/libs"
+  ]
+}
