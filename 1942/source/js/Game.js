@@ -1,59 +1,52 @@
-"use strict";
 define(
     "Game",
     [
-        "phaser"
+        "phaser",
+        "Player"
     ],
-    function(phaser) {
+    function(Phaser, Player) {
 
-        return function Game() {
-
-            var _game = new phaser.Game(800, 600, Phaser.AUTO, "");
-            _game.antialias = false;
-
-            var _cursors, _player;
-
-            _game.state.add("play", {
-                preload: function() {
-                    _game.load.atlas("fighter", "assets/sprites.png", "assets/sprites.json");
-                },
-                create: function() {
-                    _game.physics.startSystem(phaser.Physics.ARCADE);
-                    _cursors = _game.input.keyboard.createCursorKeys()
-                    _player = _game.add.sprite(_game.world.centerX, _game.world.centerY, "fighter");
-                    _player.frameName = "fighter_default";
-                    _player.animations.add("left", phaser.Animation.generateFrameNames("fighter_left", 1, 3), 15, false);
-                    _player.animations.add("right", phaser.Animation.generateFrameNames("fighter_right", 1, 3), 15, false);
-                    _player.scale.setTo(2, 2);
-                    _game.physics.arcade.enable(_player);
-                    _player.body.collideWorldBounds = true;
-                },
-                update: function() {
-                    if (_cursors.left.isDown) {
-                        _player.body.velocity.x = -150;
-                        _player.animations.play("left");
-                    }
-                    else if (_cursors.right.isDown) {
-                        _player.body.velocity.x = 150;
-                        _player.animations.play("right");
-                    }
-                    else {
-                        _player.body.velocity.x = 0;
-                        _player.animations.stop();
-                        _player.frameName = "fighter_default";
-                    }
-                },
-                render: function() {
-                    //_game.debug.cameraInfo(_game.camera, 32, 500);
-                }
+        var Game = function() {
+            this.game = new Phaser.Game(
+            //Phaser.Game.call(this,
+                800,
+                600,
+                Phaser.AUTO, //renderer
+                "", //parent(htmlelement)
+                null, //state
+                false, //transparent
+                false, //antialias
+                Phaser.Physics.ARCADE //physics
+            );
+            this.game.state.add("start", {
+                preload: this.preload,
+                create: this.create,
+                update: this.update
             });
-
-            return {
-                start: function() {
-                    _game.state.start("play");
-                }
-            };
         };
+
+        //Game.prototype = Object.create(Phaser.Game.prototype);
+        Game.prototype.constructor = Game;
+
+        Game.prototype.preload = function() {
+            this.game.load.atlas("fighter", "assets/sprites.png", "assets/sprites.json");
+        };
+
+        Game.prototype.create = function() {
+            this.game.physics.startSystem(Phaser.Physics.ARCADE);
+            this.cursors = this.game.input.keyboard.createCursorKeys();
+            this.player = new Player(this.game, this.cursors);
+        };
+
+        Game.prototype.update = function() {
+            this.player.update();
+        };
+
+        Game.prototype.start = function() {
+            this.game.state.start("start");
+        };
+
+        return Game;
 
     }
 )

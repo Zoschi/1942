@@ -1,16 +1,16 @@
 var gulp = require("gulp");
 var watch = require("gulp-watch");
+var gutil = require("gulp-util");
 
+gulp.task("default", function() {
 
-gulp.task("copy-scripts", function(test) {
-
-    gulp.src("source/js/*.js")
-        .pipe(gulp.dest("public/js/"));
+    gulp.src("source/**/*")
+        .pipe(gulp.dest("public"));
 });
 
 gulp.task("watch", function() {
     var source = "source";
-    gulp.src(source + "/*", { base: source })
-        .pipe(watch(source, { base: source }))
+    gulp.src(source + "/**/*", { base: source })
+        .pipe(watch(source, { base: source }).on("error", gutil.log))
         .pipe(gulp.dest("public"));
 });
