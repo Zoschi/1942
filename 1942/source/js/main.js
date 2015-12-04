@@ -2,7 +2,7 @@
 require.config({
     "baseUrl": "js",
     "paths": {
-        phaser: "libs/phaser-build/phaser.min"
+        phaser: "libs/phaser-official/build/phaser"
     },
     "shim": {
         "phaser": {

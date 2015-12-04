@@ -11,6 +11,7 @@ gulp.task("default", function() {
 gulp.task("watch", function() {
     var source = "source";
     gulp.src(source + "/**/*", { base: source })
-        .pipe(watch(source, { base: source }).on("error", gutil.log))
+        .pipe(watch(source, { base: source })
+            .on("error", gutil.log))
         .pipe(gulp.dest("public"));
 });

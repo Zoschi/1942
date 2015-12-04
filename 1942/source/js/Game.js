@@ -6,11 +6,25 @@ define(
     ],
     function(Phaser, Player) {
 
+        var PlayState = function() {
+            return {
+                preload: function () {
+                    this.load.atlas("sprites", "assets/sprites.png", "assets/sprites.json");
+                },
+                create: function () {
+                    this.physics.startSystem(Phaser.Physics.ARCADE);
+                    this.player = new Player(this.game);
+                },
+                update: function () {
+
+                }
+            };
+        };
+
         var Game = function() {
-            this.game = new Phaser.Game(
-            //Phaser.Game.call(this,
+            Phaser.Game.call(this,
                 600,
-                600,
+                400,
                 Phaser.AUTO, //renderer
                 "", //parent(htmlelement)
                 null, //state
@@ -18,32 +32,14 @@ define(
                 false, //antialias
                 Phaser.Physics.ARCADE //physics
             );
-            this.game.state.add("start", {
-                preload: this.preload,
-                create: this.create,
-                update: this.update
-            });
+            this.state.add("play", PlayState);
         };
 
-        //Game.prototype = Object.create(Phaser.Game.prototype);
+        Game.prototype = Object.create(Phaser.Game.prototype);
         Game.prototype.constructor = Game;
 
-        Game.prototype.preload = function() {
-            this.game.load.atlas("fighter", "assets/sprites.png", "assets/sprites.json");
-        };
-
-        Game.prototype.create = function() {
-            this.game.physics.startSystem(Phaser.Physics.ARCADE);
-            this.cursors = this.game.input.keyboard.createCursorKeys();
-            this.player = new Player(this.game, this.cursors);
-        };
-
-        Game.prototype.update = function() {
-            this.player.update();
-        };
-
         Game.prototype.start = function() {
-            this.game.state.start("start");
+            this.state.start("play");
         };
 
         return Game;
