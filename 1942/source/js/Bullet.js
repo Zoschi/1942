@@ -12,9 +12,7 @@ define(
             this.scale.setTo(2, 2);
             this.anchor.setTo(0.5, 0.5);
             this.game.physics.arcade.enable(this);
-            this.keyboard = new Phaser.Keyboard(game);
-            this.exists = false;
-            this.visible = false;
+            this.kill();
             this.checkWorldBounds = true;
             this.events.onOutOfBounds.add(this.kill, this);
             game.add.existing(this);

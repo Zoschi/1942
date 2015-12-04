@@ -16,8 +16,8 @@ define(
             this.scale.setTo(2, 2);
             this.anchor.setTo(0.5, 0.5);
             this.game.physics.arcade.enable(this);
+            this.enableBody = true;
             this.body.collideWorldBounds = true;
-            this._cursors = game.input.keyboard.createCursorKeys();
             this._bulletTime = 0;
 
             //create bullets
@@ -38,7 +38,7 @@ define(
                 this.fireBullet();
             }
 
-            if (this._cursors.left.isDown) {
+            if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this._cursorRight = false;
                 if (!this._cursorLeft) {
                     this.body.velocity.x = -150;
@@ -46,7 +46,7 @@ define(
                     this._cursorLeft = true;
                 }
             }
-            else if (this._cursors.right.isDown) {
+            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
                 this._cursorLeft = false;
                 if (!this._cursorRight) {
                     this.body.velocity.x = 150;
@@ -61,10 +61,10 @@ define(
                 this.animations.stop();
                 this.frameName = "fighter_default";
             }
-            if (this._cursors.up.isDown) {
+            if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
                 this.body.velocity.y = -150;
             }
-            else if (this._cursors.down.isDown) {
+            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
                 this.body.velocity.y = 150;
             }
             else {
@@ -74,8 +74,7 @@ define(
         };
 
         Player.prototype.fireBullet = function() {
-            if (this.game.time.now > this._bulletTime)
-            {
+            if (this.game.time.now > this._bulletTime) {
                 var bullet = this._bullets.getFirstExists(false);
 
                 if (bullet) {
@@ -84,7 +83,7 @@ define(
                     this._bulletTime = this.game.time.now + 150;
                 }
             }
-        }
+        };
 
         return Player;
 

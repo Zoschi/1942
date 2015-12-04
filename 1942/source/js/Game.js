@@ -2,21 +2,34 @@ define(
     "Game",
     [
         "phaser",
-        "Player"
+        "Player",
+        "EnemyGroup",
+        "Enemy"
     ],
-    function(Phaser, Player) {
+    function(Phaser, Player, EnemyGroup, Enemy) {
 
         var PlayState = function() {
             return {
                 preload: function () {
                     this.load.atlas("sprites", "assets/sprites.png", "assets/sprites.json");
+                    this.load.image("background", "assets/background.png");
                 },
                 create: function () {
                     this.physics.startSystem(Phaser.Physics.ARCADE);
-                    this.player = new Player(this.game);
+                    this._background = this.game.add.tileSprite(0, 0, 800, 600, "background");
+                    this._player = new Player(this.game);
+                    this._enemies = new EnemyGroup(this.game);
+                    this._enemies.start();
                 },
                 update: function () {
-
+                    this._background.tilePosition.y += 1;
+                    this.game.physics.arcade.overlap(this._player, this._enemies, function(player, enemy) {
+                        enemy.explode();
+                    });
+                    this.game.physics.arcade.overlap(this._player._bullets, this._enemies, function(bullet, enemy) {
+                        bullet.kill();
+                        enemy.explode();
+                    });
                 }
             };
         };

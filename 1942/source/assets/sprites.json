@@ -71,6 +71,78 @@
                 "w":4,
                 "h":4
             }
+        },
+        {
+            "filename": "enemy1_1",
+            "frame":{
+                "x":7,
+                "y":469,
+                "w":31,
+                "h":23
+            }
+        },
+        {
+            "filename": "enemy1_5",
+            "frame":{
+                "x":141,
+                "y":468,
+                "w":25,
+                "h":25
+            }
+        },
+        {
+            "filename": "enemy1_explode1",
+            "frame":{
+                "x":165,
+                "y":81,
+                "w":17,
+                "h":15
+            }
+        },
+        {
+            "filename": "enemy1_explode2",
+            "frame":{
+                "x":180,
+                "y":81,
+                "w":17,
+                "h":15
+            }
+        },
+        {
+            "filename": "enemy1_explode3",
+            "frame":{
+                "x":197,
+                "y":81,
+                "w":17,
+                "h":15
+            }
+        },
+        {
+            "filename": "enemy1_explode4",
+            "frame":{
+                "x":217,
+                "y":81,
+                "w":17,
+                "h":15
+            }
+        },
+        {
+            "filename": "enemy1_explode5",
+            "frame":{
+                "x":238,
+                "y":81,
+                "w":17,
+                "h":15
+            }
+        },
+        {
+            "filename": "enemy1_explode6",
+            "frame":{
+                "x":257,
+                "y":81,
+                "w":17,
+                "h":15
+            }
         }
     ]
 }
