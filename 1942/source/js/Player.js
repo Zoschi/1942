@@ -7,7 +7,7 @@ define(
 
         var Player = function(game, cursors) {
             this.cursors = cursors;
-            Phaser.Sprite.call(this, game, game.world.centerX, game.world.bounds.height - 32, "fighter");
+            Phaser.Sprite.call(this, game, game.world.centerX, game.world.bounds.height - 50, "fighter");
 
             this.frameName = "fighter_default";
             this.animations.add("left", Phaser.Animation.generateFrameNames("fighter_left", 1, 3), 15, false);

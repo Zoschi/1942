@@ -3,64 +3,64 @@
         {
             "filename": "fighter_default",
             "frame":{
-                "x":0,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":5,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_left1",
             "frame":{
-                "x":64,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":68,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_left2",
             "frame":{
-                "x":128,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":132,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_left3",
             "frame":{
-                "x":192,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":196,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_right1",
             "frame":{
-                "x":32,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":36,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_right2",
             "frame":{
-                "x":96,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":100,
+                "y":7,
+                "w":25,
+                "h":15
             }
         },
         {
             "filename": "fighter_right3",
             "frame":{
-                "x":160,
-                "y":0,
-                "w":32,
-                "h":22
+                "x":164,
+                "y":7,
+                "w":25,
+                "h":15
             }
         }
     ]
