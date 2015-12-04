@@ -9,7 +9,7 @@ define(
         var Game = function() {
             this.game = new Phaser.Game(
             //Phaser.Game.call(this,
-                800,
+                600,
                 600,
                 Phaser.AUTO, //renderer
                 "", //parent(htmlelement)

@@ -12,7 +12,7 @@
         {
             "filename": "fighter_left1",
             "frame":{
-                "x":192,
+                "x":64,
                 "y":0,
                 "w":32,
                 "h":22
@@ -30,7 +30,7 @@
         {
             "filename": "fighter_left3",
             "frame":{
-                "x":64,
+                "x":192,
                 "y":0,
                 "w":32,
                 "h":22
