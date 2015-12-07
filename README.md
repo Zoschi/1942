@@ -11,3 +11,5 @@ You need at least these packages installed globally:
 - ```npm install```
 - ```bower install```
 - ```gulp```
+
+The executable game is now located in public/. Just link your web server to it, or start index.html directly in your browser.
